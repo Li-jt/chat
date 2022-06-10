@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <link rel="stylesheet" href="./css/normalize.css">
+  <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body>
+  <div id="app">
+    <div class="chats">
+
+      <div class="chat" ref="nav">
+        <div class="item" v-for="item in infos">
+          <!-- 用户信息 -->
+          <div class="userinfo">
+            <div class="avatar">
+              <img :src="`./img/avatar_${item.avatar}.jpeg`" @load="scrollHeight++">
+            </div>
+          </div>
+          <!-- 内容 -->
+          <div class="Info">
+            {{item.msg}}
+            <img src="https://upload-bbs.mihoyo.com/upload/2022/05/30/160114893/915d359ba391e824abfd24219da86e3b_233373723024523842.jpg?x-oss-process=image//resize,s_600/quality,q_80/auto-orient,0/interlace,1/format,jpg" alt="">
+          </div>
+        </div>
+      </div>
+
+      <div class="input">
+        <input type="text" @keydown.enter="send" v-model="msg">
+        <button @click="send">发送</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="./js/index.js"></script>
+</body>
+
+</html>
